@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Predefined path</title>
+    <script type="text/javascript" src="script.js"> </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h2 class="headline">Predefined path</h2>
+
+<form action="#" method="post" id="form">
+    <table id="myTable">
+        <tr>
+            <th>Direction</th>
+            <th>Speed</th>
+            <th>Distance</th>
+            <th>Degrees</th>
+        </tr>
+        <tr>
+            <td id="column0"><select name="text" id="Move">
+                <option value="" disabled selected hidden>Select your option</option>
+                <option value="Forward">Forward</option>
+                <option value="Reverse">Reverse</option>
+                <option value="Right">Right</option>
+                <option value="Left">Left</option>
+            </select>
+                <br>
+            </td>
+
+            <td id="column1"><input type="number" name="Speed" value="" /></td>
+            <td id="column2"><input type="number" id="Distance"><br></td>
+            <td id="column3"><input type="number" id="Degrees"><br></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><input type="button" value="Add Stage" onclick="addRows()" /></td>
+            <td><input type="button" value="Delete Stage" onclick="deleteRows()" /></td>
+            <td><input type="submit" value="Execute path"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
