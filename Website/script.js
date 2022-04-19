@@ -24,40 +24,102 @@ function runSpeechRecognition() {
         var transcript = event.results[0][0].transcript;
         output.innerHTML = "<b>You said:</b> " + transcript;
         output.classList.remove("hide");
+
+        document.getElementById('searchbar').value = transcript;
+
+        search_item()
+
     };
+
 
     // start recognition
     recognition.start();
 }
 
 //---------------
+//DummyData for proof of concept
+let itemJson = `[
+  {"Item": "Tomato", "Quantity": "30", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
+  {"Item": "Ice Cream", "Quantity": "40", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
+  {"Item": "Salmon", "Quantity": "40", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
+  {"Item": "Apple", "Quantity": "100", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
+  {"Item": "Frozen Pizza", "Quantity": "14", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
+  {"Item": "Coca-Cola", "Quantity": "14", "Price": "19 SEK", "Aisle": "2", "Section": "B"},
+  {"Item": "Coca-Cola", "Quantity": "14", "Price": "12 SEK", "Aisle": "2", "Section": "B"}
+]`
+
+let itemData = JSON.parse(itemJson)
+
+//This function is used in both voice recognition and manual search
+function search_item() {
+    let input = document.getElementById('searchbar').value
+    input = input.toLowerCase();
+    let x = document.querySelector('#result');
+    x.innerHTML = ""
+
+    for (i = 0; i < itemData.length; i++) {
+        let obj = itemData[i];
+
+        if (obj.Item.toLowerCase().includes(input)) {
+            const elem = document.createElement("li")
+            elem.innerHTML = `${obj.Item} - Quantity: ${obj.Quantity} - Price: ${obj.Price} | Location:  Aisle: ${obj.Aisle} - Section: ${obj.Section} `
+            x.appendChild(elem)
+        }
+
+    }
+}
+
+//--------------- Predefined path --------
 
 function addRows(){
-    var table = document.getElementById('myTable');
-    var rowCount = table.rows.length;
-    var cellCount = table.rows[0].cells.length;
-    var row = table.insertRow(rowCount);
+    const table = document.getElementById('myTable');
+    const rowCount = table.rows.length;
+    const cellCount = table.rows[0].cells.length;
+    const row = table.insertRow(rowCount);
 
     for(var i =0; i <= cellCount; i++){
-        var cell = 'cell'+i;
+        let cell = 'cell'+i;
         cell = row.insertCell(i);
-        var copycel = document.getElementById('column'+i).innerHTML;
-        cell.innerHTML=copycel;
+        cell.innerHTML=document.getElementById('column' + i).innerHTML;
 
 
     }
 }
 function deleteRows(){
-    var table = document.getElementById('myTable');
-    var rowCount = table.rows.length;
+    const table = document.getElementById('myTable');
+    let rowCount = table.rows.length;
     if(rowCount > '2'){
-        var row = table.deleteRow(rowCount-1);
+        const row = table.deleteRow(rowCount-1);
         rowCount--;
     }
     else{
-        alert('There should be atleast one row');
+        alert('There should be at least one stage');
     }
 }
 
-//---------------
 
+function submit(){
+        const speed = Number.parseInt(document.getElementById("speed").value, 10);
+        const distance = Number.parseInt(document.getElementById("distance").value, 10);
+        const degrees = Number.parseInt(document.getElementById("degrees").value, 10);
+
+        const data = {speed, distance, degrees};
+
+    postData('http://localhost:', data)
+        .then(response => {
+            console.log(response);
+        });
+
+};
+
+async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    return response.json();
+}
