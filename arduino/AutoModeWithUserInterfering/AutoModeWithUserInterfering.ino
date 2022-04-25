@@ -6,7 +6,7 @@ this sketch needs to be improved with millis() function and interrupt to handle 
 
 
 const auto carSpeed =                70;
-
+volatile int counter;
 
 const auto frontIR_PIN = 0;
 const auto leftIR_PIN = 1;
@@ -21,6 +21,7 @@ ArduinoRuntime arduinoRuntime;
 BrushedMotor leftMotor{arduinoRuntime, smartcarlib::pins::v2::leftMotorPins};
 BrushedMotor rightMotor{arduinoRuntime, smartcarlib::pins::v2::rightMotorPins};
 DifferentialControl control{leftMotor, rightMotor};
+
 
 const auto pulsesPerMeter = 600;
 
@@ -63,21 +64,25 @@ void setup()
 
 void loop()
 {
-  // If FRONT and LEFT
-  frontLeftObstacle();
 
-  /*If FRONT, RIGHT and left sensor meet value */
-  FrontLeftRightObstacle();
 
-  //If front, right sensor active
-  frontRightObstacle();
-
+  conferimAdmin();
   // Obstecle FRONT
-
   frontObstacle();
 
   //Obstacle BACK
   backObstacle();
+
+//  // If FRONT and LEFT
+//  //frontLeftObstacle();
+//  
+//  /*If FRONT, RIGHT and left sensor meet value */
+//  //FrontLeftRightObstacle();
+//
+//  //If front, right sensor active
+//  //frontRightObstacle();
+
+  
 
 #ifdef SMCE
   // Avoid over-using the CPU if we are running in the emulator
@@ -92,7 +97,7 @@ void loop()
 void backObstacle()
 {
   const auto distanceBackIR = backIR.getDistance();
-  if (distanceBackIR > 25 && distanceBackIR < 70)
+  if (distanceBackIR > 0 && distanceBackIR < 70)
   {
     car.setSpeed(0);
     delay(2000);
@@ -109,10 +114,27 @@ void frontObstacle()
   const auto front_distance = front.getDistance();
   const auto distanceIR = sideFrontIR.getDistance();
 
-  if (front_distance > 0 && front_distance < 70 || distanceIR > 25 && distanceIR < 70 )
+  if (front_distance > 0 && front_distance < 60 || distanceIR > 25 && distanceIR < 70 )
   {
 
     car.setSpeed(0);
+    counter++;
+    if(counter > 2000 )
+    {
+       car.setSpeed(-50);
+        delay(1000);
+        car.setSpeed(0);
+        delay(1000);
+        car.setSpeed(-50);
+        car.setAngle(90);
+        delay(2000);
+        car.setAngle(0);
+        car.setSpeed(carSpeed);
+        car.setSpeed(50);
+        counter = 0;
+    }
+      
+    }
 
     /* Give the possibility of user interference after the car is stopped. */
 
@@ -168,7 +190,7 @@ void frontObstacle()
       }
     }
     
-  }
+  
 #ifdef SMCE
   // Avoid over-using the CPU if we are running in the emulator
   delay(1);
@@ -176,65 +198,86 @@ void frontObstacle()
 }
 
 
-void frontLeftObstacle()
-{
 
-  const auto distanceLeftIR = leftIR.getDistance();
-  const auto front_distance = front.getDistance();
-  if (front_distance > 0 && front_distance < 70 && distanceLeftIR > 25 && distanceLeftIR < 100 )
-  {
-    car.setSpeed(0);
-    delay(2000);
-    car.setSpeed(-50);
-    delay(1000);
-    car.setSpeed(0);
-    delay(1000);
-    car.setAngle(60);
-    car.setSpeed(carSpeed);
-    delay(1700);
-    car.setAngle(0);
-  }
 
-}
 
-void frontRightObstacle()
+void conferimAdmin()
 {
   const auto front_distance = front.getDistance();
-  const auto distanceRightIR = rightIR.getDistance();
-  if (front_distance > 0 && front_distance < 70 && distanceRightIR > 25 && distanceRightIR < 100)
+  const auto distanceIR = sideFrontIR.getDistance();
+  const auto distanceBackIR = backIR.getDistance();
+  if(car.getSpeed() == 0 && front_distance > 65 || car.getSpeed() == 0 || distanceIR > 70)
   {
-    car.setSpeed(0);
-    delay(2000);
-    car.setSpeed(-50);
-    delay(1000);
-    car.setSpeed(0);
-    delay(1000);
-    car.setAngle(-65);
-    car.setSpeed(carSpeed);
-    delay(1700);
-    car.setAngle(0);
-
+    Serial.println("HELP!");
+    Serial.println("HELP!");
+    
   }
-
+ 
 }
 
-void FrontLeftRightObstacle()
-{
-  const auto front_distance = front.getDistance();
-  const auto distanceLeftIR = leftIR.getDistance();
-  const auto distanceRightIR = rightIR.getDistance();
-  if (front_distance > 0 && front_distance < 70 && distanceLeftIR > 25 && distanceLeftIR < 100 && distanceRightIR > 25 && distanceRightIR < 100)
-  {
-    car.setSpeed(0);
-    delay(2000);
-    car.setSpeed(-50);
-    delay(2000);
-    car.setSpeed(0);
-    delay(2000);
-    car.setAngle(180);
-    car.setSpeed(carSpeed);
-    delay(2000);
-    car.setAngle(0);
-  }
 
-}
+
+
+
+
+//void FrontLeftRightObstacle()
+//{
+//  const auto front_distance = front.getDistance();
+//  const auto distanceLeftIR = leftIR.getDistance();
+//  const auto distanceRightIR = rightIR.getDistance();
+//  if (front_distance > 0 && front_distance < 70 && distanceLeftIR > 25 && distanceLeftIR < 100 && distanceRightIR > 25 && distanceRightIR < 100)
+//  {
+//    car.setSpeed(0);
+//    delay(2000);
+//    car.setSpeed(-50);
+//    delay(2000);
+//    car.setSpeed(0);
+//    delay(2000);
+//    car.setAngle(180);
+//    car.setSpeed(carSpeed);
+//    delay(2000);
+//    car.setAngle(0);
+//  }
+//
+//}
+//void frontLeftObstacle()
+//{
+//
+//  const auto distanceLeftIR = leftIR.getDistance();
+//  const auto front_distance = front.getDistance();
+//  if (front_distance > 0 && front_distance < 70 && distanceLeftIR > 25 && distanceLeftIR < 100 )
+//  {
+//    car.setSpeed(0);
+//    delay(2000);
+//    car.setSpeed(-50);
+//    delay(1000);
+//    car.setSpeed(0);
+//    delay(1000);
+//    car.setAngle(60);
+//    car.setSpeed(carSpeed);
+//    delay(1700);
+//    car.setAngle(0);
+//  }
+//
+//}
+//
+//void frontRightObstacle()
+//{
+//  const auto front_distance = front.getDistance();
+//  const auto distanceRightIR = rightIR.getDistance();
+//  if (front_distance > 0 && front_distance < 70 && distanceRightIR > 25 && distanceRightIR < 100)
+//  {
+//    car.setSpeed(0);
+//    delay(2000);
+//    car.setSpeed(-50);
+//    delay(1000);
+//    car.setSpeed(0);
+//    delay(1000);
+//    car.setAngle(-65);
+//    car.setSpeed(carSpeed);
+//    delay(1700);
+//    car.setAngle(0);
+//
+//  }
+//
+//}
