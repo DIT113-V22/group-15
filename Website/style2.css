@@ -1,5 +1,6 @@
 body {
     font-family: arial;
+    background-image: url("background_IMG.jpg");
 }
 .grid-container {
     display: grid;
@@ -11,6 +12,7 @@ headline{
     grid-column-end: 4;
     text-align: center;
     height: 5px;
+
 
 
 }

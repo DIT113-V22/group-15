@@ -1,0 +1,10 @@
+{
+  "name": "group-15",
+  "version": "1.0.0",
+  "devDependencies": {
+    "mqtt": "^4.3.7"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

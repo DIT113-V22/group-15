@@ -1,5 +1,5 @@
 
-
+// Allows our website to use speech to text.
 function runSpeechRecognition() {
     // get output div reference
     var output = document.getElementById("output");
@@ -15,7 +15,7 @@ function runSpeechRecognition() {
     };
 
     recognition.onspeechend = function () {
-        action.innerHTML = "<small>Voice result</small>";
+        //action.innerHTML = "<small>Voice result</small>";
         recognition.stop();
     }
 
@@ -37,7 +37,7 @@ function runSpeechRecognition() {
 }
 
 //---------------
-//DummyData for proof of concept
+//DummyData for items. @Carl
 let itemJson = `[
   {"Item": "Tomato", "Quantity": "30", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
   {"Item": "Ice Cream", "Quantity": "40", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
@@ -70,7 +70,7 @@ function search_item() {
 }
 
 //--------------- Predefined path --------
-
+/* //not in use anymore, scope changed.
 function addRows(){
     const table = document.getElementById('myTable');
     const rowCount = table.rows.length;
@@ -85,6 +85,8 @@ function addRows(){
 
     }
 }
+// not in use
+
 function deleteRows(){
     const table = document.getElementById('myTable');
     let rowCount = table.rows.length;
@@ -97,7 +99,7 @@ function deleteRows(){
     }
 }
 
-
+// not in use
 function submit(){
         const speed = Number.parseInt(document.getElementById("speed").value, 10);
         const distance = Number.parseInt(document.getElementById("distance").value, 10);
@@ -110,7 +112,8 @@ function submit(){
             console.log(response);
         });
 
-};
+}
+// not in use
 
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
@@ -122,4 +125,4 @@ async function postData(url = '', data = {}) {
         body: JSON.stringify(data)
     });
     return response.json();
-}
+} */
