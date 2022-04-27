@@ -1,3 +1,7 @@
+/*
+
+
+// not in use code has been moved to script.js
 const mqtt = require('mqtt')
 
 const host = 'localhost-connect'
@@ -34,5 +38,4 @@ client.on('connect', () => {
             console.error(error)
         }
     })
-})
-
+})*/
