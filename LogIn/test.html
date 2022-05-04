@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="test2.css">
+    <script type = "text/javascript" src="login.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -13,15 +15,15 @@
 
 <form>
     Username: <br>
-    <input type="text" name="username" class="persinfo"/>
+    <input type="text" id="username" class="persinfo"/>
     <br><br>
     Password: <br>
-    <input type="password" name="pass" class="persinfo"/><br><br>
+    <input type="password" id="password" class="persinfo"/><br><br>
 </form>
 
 
 <div id="buttons">
-    <button id="btnlogin">Login</button><br><br>
+    <button id="btnlogin" onclick="getInfo()">Login</button><br><br>
     <button id="btnback">Return</button>
 
 </div>

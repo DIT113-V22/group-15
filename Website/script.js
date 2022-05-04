@@ -63,6 +63,12 @@ function search_item() {
             const elem = document.createElement("li")
             elem.innerHTML = `${obj.Item} - Quantity: ${obj.Quantity} - Price: ${obj.Price} | Location:  Aisle: ${obj.Aisle} - Section: ${obj.Section} `
             x.appendChild(elem)
+
+            var msg = new SpeechSynthesisUtterance();
+            msg.lang = 'en-US';
+            msg.rate = 0.75;
+            msg.text = `you can find the ${obj.Item} in Aisle ${obj.Aisle} Section ${obj.Section} at this moment we have ${obj.Quantity} ${obj.Item} in stock and the price is ${obj.Price}`
+            window.speechSynthesis.speak(msg);
         }
 
     }
@@ -173,3 +179,9 @@ client.on('connect', () => {
         }
     })
 })
+
+function test () {
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = "Hello World";
+    window.speechSynthesis.speak(msg);
+}
