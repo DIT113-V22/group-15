@@ -131,8 +131,8 @@ void setup() {
 
 void loop() {
 
-  autoDrive();
-  manualControl();
+//  autoDrive();
+//  manualControl();
   detectObstacle();
 
 
