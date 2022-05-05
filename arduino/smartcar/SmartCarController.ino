@@ -131,8 +131,8 @@ void setup() {
 
 void loop() {
 
-//  autoDrive();
-//  manualControl();
+  autoDrive();
+  manualControl();
   detectObstacle();
 
 
@@ -203,10 +203,6 @@ void detectObstacle()
 {
   auto distance_front_IR = FrontIR.getDistance();
   auto US_front_distance = US_front.getDistance();
-  //  if (US_front_distance > 300 && distance_front_IR > 125)
-  //  {
-  //    car.setSpeed(carSpeed);
-  //  }
 
   
   if (US_front_distance > 100 && US_front_distance < 200 || distance_front_IR > 100 && distance_front_IR < 125)
@@ -258,14 +254,9 @@ void autoDrive()
 
 }
 
-void randomAngle()
+void randomAngle() //Generate a random angle between 1 and 180 degree each time try to avoid an obstacle
 {
   int angle = angleToTurn * rand() % 180;
   car.setAngle(angle);
 
 }
-
-//void decreaseSpeed() {
-//  carSpeed = carSpeed - SPEED_INCREMENT;
-//  car.setSpeed(carSpeed);
-//}
