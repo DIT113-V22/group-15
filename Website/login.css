@@ -18,11 +18,9 @@ form{
     text-align: center;
 
 }
-#btnback{
+#buttonBack{
     background-color: white;
-    border: 2px;
-    border-style: solid;
-    border-color: lightcoral;
+    border: 2px solid lightcoral;
     color: black;
     width: 100px;
     height: 50px;
@@ -32,17 +30,15 @@ form{
 
 
 }
-#btnback:hover{
+#buttonBack:hover{
     cursor: pointer;
     border-color: red;
 
 
 }
-#btnlogin{
+#buttonLogin{
     background-color: white;
-    border: 2px;
-    border-style: solid;
-    border-color: darkseagreen;
+    border: 2px solid darkseagreen;
     color: black;
     width: 100px;
     height: 50px;
@@ -52,12 +48,12 @@ form{
 
 
 }
-#btnlogin:hover{
+#buttonLogin:hover{
     cursor: pointer;
     border-color: green;
 
 }
-.persinfo{
+.personalInfo{
     padding: 2px 2px;
     width: 250px;
 
