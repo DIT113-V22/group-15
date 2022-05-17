@@ -18,7 +18,7 @@ form{
     text-align: center;
 
 }
-#buttonBack{
+#button-back{
     background-color: white;
     border: 2px solid lightcoral;
     color: black;
@@ -30,13 +30,13 @@ form{
 
 
 }
-#buttonBack:hover{
+#button-back:hover{
     cursor: pointer;
     border-color: red;
 
 
 }
-#buttonLogin{
+#button-login{
     background-color: white;
     border: 2px solid darkseagreen;
     color: black;
@@ -48,12 +48,12 @@ form{
 
 
 }
-#buttonLogin:hover{
+#button-login:hover{
     cursor: pointer;
     border-color: green;
 
 }
-.personalInfo{
+.personal-info{
     padding: 2px 2px;
     width: 250px;
 
