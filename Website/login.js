@@ -6,7 +6,7 @@ function getInfo(){
         if((username === "admin") && password==="123"){
             window.location = "MovementControlWeb.html";
         }else {
-            alert(message);
+            document.getElementById("info").innerHTML = "Your login credentials were incorrect! ";
         }
 
     }
