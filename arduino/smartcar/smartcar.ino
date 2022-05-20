@@ -159,7 +159,7 @@ void setup() {
           pathMode3 = false;
           path02();
 
-        }else if (message.toInt() == 3)
+        }else if (message.toInt() == 4)
         {
           driveMode = false;
           pathMode1 = false;
@@ -362,7 +362,9 @@ if (detectObstacle && freeToGo)
   {
   car.setSpeed(50);
   detectObstacle();
-  delay(3000);
+  delay(1500);
+  detectObstacle();
+  delay(1500);
   detectObstacle();
   car.setAngle(60);
   detectObstacle();
@@ -382,7 +384,9 @@ if (detectObstacle && freeToGo)
   detectObstacle();
   car.setSpeed(50);
   detectObstacle();
-  delay(3000);
+  delay(1500);
+  detectObstacle();
+  delay(1500);
   detectObstacle();
   car.setAngle(60);
   detectObstacle();
@@ -398,7 +402,7 @@ if (detectObstacle && freeToGo)
 
 
 
-void path03()
+void path02()
 {
   pathMode1 = false;
   pathMode2 = true;
@@ -412,7 +416,9 @@ void path03()
   {
     car.setSpeed(50);
     detectObstacle();
-    delay(4000);
+    delay(2000);
+    detectObstacle();
+    delay(2000);
     detectObstacle();
     car.setAngle(90);
     detectObstacle();
@@ -432,7 +438,9 @@ void path03()
     detectObstacle();
     car.setSpeed(50);
     detectObstacle();
-    delay(4000);
+    delay(2000);
+    detectObstacle();
+    delay(2000);
     detectObstacle();
     car.setAngle(-90);
     detectObstacle();
@@ -467,7 +475,7 @@ void path03()
 
 }
 
-void path02()
+void path03()
 {
   pathMode1 = false;
   pathMode2 = false;
@@ -480,7 +488,13 @@ void path02()
   {
   car.setSpeed(50);
   detectObstacle();
-  delay(4000);
+  delay(1000);
+  detectObstacle();
+  delay(1000);
+  detectObstacle();
+  delay(1000);
+  detectObstacle();
+  delay(1000);
   detectObstacle();
   car.setAngle(90);
   detectObstacle();
@@ -490,7 +504,13 @@ void path02()
   detectObstacle();
   car.setSpeed(50);
   detectObstacle();
-  delay(4000);
+  delay(1000);
+  detectObstacle();
+  delay(1000);
+  detectObstacle();
+  delay(1000);
+  detectObstacle();
+  delay(1000);
   detectObstacle();
   car.setAngle(90);
   detectObstacle();
