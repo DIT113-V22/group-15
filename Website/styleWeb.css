@@ -18,12 +18,12 @@ body {
 
 }
 
-/** headline{
+headline{
     grid-column-start: 1;
     grid-column-end: 4;
     text-align: center;
     height: 5px;
-} */
+}
 
 .login-menu{
     grid-column-start: 1;

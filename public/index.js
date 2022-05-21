@@ -46,9 +46,7 @@ const moveRight = async () => {
 const moveLeft = async () => {
     await sendMessageSteering('-35');
 }
-const moveStraight = async () => {
-    await sendMessageSteering('0,0');
-}
+
 
 
 

@@ -2,12 +2,12 @@
 // Allows our website to use speech to text. @Carl
 function runSpeechRecognition() {
     // get output div reference
-    var output = document.getElementById("output");
+    let output = document.getElementById("output");
     // get action element reference
-    var action = document.getElementById("action");
+    let action = document.getElementById("action");
     // new speech recognition object
-    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-    var recognition = new SpeechRecognition();
+    let SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    let recognition = new SpeechRecognition();
 
     // This runs when the speech recognition service starts
     recognition.onstart = function () {
@@ -21,7 +21,7 @@ function runSpeechRecognition() {
 
     // This runs when the speech recognition service returns result
     recognition.onresult = function (event) {
-        var transcript = event.results[0][0].transcript;
+        let transcript = event.results[0][0].transcript;
         output.innerHTML = "<b>You said:</b> " + transcript;
         output.classList.remove("hide");
 
@@ -56,7 +56,7 @@ function search_item() {
     let x = document.querySelector('#result');
     x.innerHTML = ""
 
-    for (i = 0; i < itemData.length; i++) {
+    for (let i = 0; i < itemData.length; i++) {
         let obj = itemData[i];
 
         if (obj.Item.toLowerCase().includes(input)) {
