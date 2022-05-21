@@ -27,7 +27,7 @@ function runSpeechRecognition() {
 
         document.getElementById('searchbar').value = transcript;
 
-        search_item()
+        searchItem()
 
     };
 
@@ -50,7 +50,7 @@ let itemJson = `[
 let itemData = JSON.parse(itemJson)
 
 //This function is used in both voice recognition and manual search
-function search_item() {
+function searchItem() {
     let input = document.getElementById('searchbar').value
     input = input.toLowerCase();
     let x = document.querySelector('#result');
