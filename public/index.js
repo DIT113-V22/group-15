@@ -1,5 +1,5 @@
 
-/* global fetch, moveForward, moveBackward, stop, moveRight, moveLeft, stopMode, AimlessMode, FrozenSection, Entrance, LargeArea */
+/* global fetch, moveForward, moveBackward, stop, moveRight, moveLeft */
 
 const sendMessageThrottle = async (direction) => {
     const response = await fetch('http://localhost:3000/throttle', {
