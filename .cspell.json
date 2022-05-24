@@ -8,9 +8,8 @@
     "nextick",
     "reinterval",
     "wrappy",
-    "yallist"
-    "duplexify"
+    "yallist",
+    "duplexify",
     "rfdc"
-
   ]
 }
