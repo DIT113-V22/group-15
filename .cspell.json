@@ -9,6 +9,8 @@
     "reinterval",
     "wrappy",
     "yallist"
+    "duplexify"
+    "rfdc"
 
   ]
 }
