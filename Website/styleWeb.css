@@ -19,15 +19,13 @@ body {
 }
 
 header{
-    grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column: auto;
     text-align: center;
     height: 5px;
 }
 
 .login-menu{
-    grid-column-start: 1;
-    grid-column-end: 4;
+   grid-column: auto;
     text-align: left;
     height: 5px;
     padding: 20px 10px;
