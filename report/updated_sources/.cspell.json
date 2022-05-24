@@ -9,7 +9,7 @@
     "wrappy",
     "yallist",
     "duplexify",
-    "rfdc",
-    "venv"
+    "rfdc"
+    
   ]
 }
