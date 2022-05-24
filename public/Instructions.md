@@ -5,4 +5,4 @@
 3. Start server by writing this in terminal: npm start
 4. Open browser, copy link: /** http://localhost:3000 */
 5. Start emulator with the smart car code. 
-   @Carl/Dahlaan
+   @Carl_Dahlaan 
