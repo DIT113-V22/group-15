@@ -4,12 +4,12 @@
 // Allows our website to use speech to text. @Carl
 function runSpeechRecognition() {
     // get output div reference
-    let output = document.getElementById("output");
+    var output = document.getElementById("output");
     // get action element reference
-    let action = document.getElementById("action");
+   var action = document.getElementById("action");
     // new speech recognition object
-    let SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-    let recognition = new SpeechRecognition();
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
 
     // This runs when the speech recognition service starts
     recognition.onstart = function () {
@@ -23,7 +23,7 @@ function runSpeechRecognition() {
 
     // This runs when the speech recognition service returns result
     recognition.onresult = function (event) {
-        let transcript = event.results[0][0].transcript;
+        var transcript = event.results[0][0].transcript;
         output.innerHTML = "<b>You said:</b> " + transcript;
         output.classList.remove("hide");
 
