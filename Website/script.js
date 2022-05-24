@@ -1,4 +1,6 @@
 
+/* global webkitSpeechRecognition, runSpeechRecognition, SpeechRecognition */
+
 // Allows our website to use speech to text. @Carl
 function runSpeechRecognition() {
     // get output div reference
