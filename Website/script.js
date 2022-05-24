@@ -1,5 +1,5 @@
 
-/* global webkitSpeechRecognition, runSpeechRecognition, SpeechRecognition */
+/* global webkitSpeechRecognition */
 
 // Allows our website to use speech to text. @Carl
 function runSpeechRecognition() {
