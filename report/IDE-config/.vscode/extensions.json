@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "stylelint.vscode-stylelint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "mkaufman.HTMLHint",
+        "chenxsan.vscode-standardjs"
+    ]
+}
