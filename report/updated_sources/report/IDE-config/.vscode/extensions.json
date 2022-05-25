@@ -1,9 +1,8 @@
 {
     "recommendations": [
+        "chenxsan.vscode-standardjs",
         "stylelint.vscode-stylelint",
         "mkaufman.HTMLHint",
-        "chenxsan.vscode-standardjs",
-        "streetsidesoftware.code-spell-checker",
         "esbenp.prettier-vscode"
     ]
 }
