@@ -4,8 +4,7 @@
     "**/node_modules/**",
     "**/vscode-extension/**",
     "**/.git/**",
-    ".vscode",
-    "report"
+    ".vscode"
   ],
   "words": [
     "smartcar",
