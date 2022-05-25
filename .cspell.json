@@ -1,5 +1,12 @@
 {
   "language": "en",
+  "ignorePaths": [
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        ".vscode",
+        "report"
+    ],
   "words": [
     "smartcar",
     "commist",
