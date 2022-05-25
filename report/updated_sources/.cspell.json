@@ -1,12 +1,6 @@
 {
   "language": "en",
-  "ignorePaths": [
-    "**/node_modules/**",
-    "**/vscode-extension/**",
-    "**/.git/**",
-    ".vscode",
-    "report"
-  ],
+  "ignorePaths": ["**/.git/**", ".vscode"],
   "words": [
     "smartcar",
     "commist",
@@ -16,6 +10,9 @@
     "wrappy",
     "yallist",
     "duplexify",
-    "rfdc"
+    "rfdc",
+    "tagname",
+    "venv",
+    "stylelint"
   ]
 }

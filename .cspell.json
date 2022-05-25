@@ -1,9 +1,6 @@
 {
   "language": "en",
-  "ignorePaths": [
-    "**/.git/**",
-    ".vscode"
-  ],
+  "ignorePaths": ["**/.git/**", ".vscode"],
   "words": [
     "smartcar",
     "commist",
