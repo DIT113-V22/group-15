@@ -47,6 +47,19 @@ client.on('connect', () => {
         res.sendStatus(201);
     })
 
+    app.post('/DriveMode', (req, res) => {
+        const topic ='/smartcar/control/drive'
+        client.publish(topic, req.body.drive, { qos: 0, retain: false }, (error) => {
+            if (error) {
+                console.error(error)
+            }
+        })
+        res.sendStatus(201);
+    })
+
+
+
+
     app.listen(port, () => {
         console.log(`Backend server listening on port ${port}`)
     })

@@ -1,4 +1,4 @@
-
+/* global webkitSpeechRecognition */
 // Allows our website to use speech to text. @Carl
 function runSpeechRecognition() {
     // get output div reference
@@ -6,8 +6,13 @@ function runSpeechRecognition() {
     // get action element reference
     var action = document.getElementById("action");
     // new speech recognition object
+
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-    var recognition = new SpeechRecognition();
+    var recognition = new SpeechRecognition;
+
+    recognition.lang = 'en-US';
+
+    recognition.start();
 
     // This runs when the speech recognition service starts
     recognition.onstart = function () {
@@ -15,7 +20,7 @@ function runSpeechRecognition() {
     };
 
     recognition.onspeechend = function () {
-        //action.innerHTML = "<small>Voice result</small>";
+        action.innerHTML = "<small></small>";
         recognition.stop();
     }
 
@@ -31,13 +36,11 @@ function runSpeechRecognition() {
 
     };
 
-    // start recognition
-    recognition.start();
 }
 
 //---------------
 //DummyData for items. @Carl
-let itemJson = `[
+const itemJson = `[
   {"Item": "Tomato", "Quantity": "30", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
   {"Item": "Ice Cream", "Quantity": "40", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
   {"Item": "Salmon", "Quantity": "40", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
@@ -45,7 +48,7 @@ let itemJson = `[
   {"Item": "Frozen Pizza", "Quantity": "14", "Price": "29 SEK", "Aisle": "2", "Section": "B"},
   {"Item": "Coca-Cola", "Quantity": "14", "Price": "19 SEK", "Aisle": "2", "Section": "B"},
   {"Item": "Coca-Cola", "Quantity": "14", "Price": "12 SEK", "Aisle": "2", "Section": "B"}
-]`
+]`;
 
 let itemData = JSON.parse(itemJson)
 
@@ -56,7 +59,7 @@ function search_item() {
     let x = document.querySelector('#result');
     x.innerHTML = ""
 
-    for (i = 0; i < itemData.length; i++) {
+    for (let i = 0; i < itemData.length; i++) {
         let obj = itemData[i];
 
         if (obj.Item.toLowerCase().includes(input)) {
