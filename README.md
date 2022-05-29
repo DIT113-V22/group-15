@@ -55,7 +55,7 @@ Please observe that step 1.0-1.7 is instruction for Mac. Please use the link to 
 **3.1** Install all dependencies, write this in the IDE terminal: npm install
 **3.2** To start the server write this in the IDE terminal: npm start 
 
-**4.** Open google browser and enter: http://localhost:3000   
+**4.** Open google browser and enter: `http://localhost:3000`
  
 **5.** If the physical car is not available you can install this emulator for the car. Follow the instructions in the link below to install the emulator. 
 
