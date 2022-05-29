@@ -1,4 +1,5 @@
 
+/* global fetch */
 
 const sendMessageThrottle = async (direction) => {
     const response = await fetch('http://localhost:3000/throttle', {
@@ -46,8 +47,8 @@ const moveRight = async () => {
 const moveLeft = async () => {
     await sendMessageSteering('-35');
 }
-const moveStraight = async () => {
-    await sendMessageSteering('0,0');
-}
+
+
+
 
 

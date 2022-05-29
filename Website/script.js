@@ -1,10 +1,12 @@
 
+/* global webkitSpeechRecognition */
+
 // Allows our website to use speech to text. @Carl
 function runSpeechRecognition() {
     // get output div reference
     var output = document.getElementById("output");
     // get action element reference
-    var action = document.getElementById("action");
+   var action = document.getElementById("action");
     // new speech recognition object
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
@@ -27,7 +29,7 @@ function runSpeechRecognition() {
 
         document.getElementById('searchbar').value = transcript;
 
-        search_item()
+        searchItem()
 
     };
 
@@ -50,13 +52,13 @@ let itemJson = `[
 let itemData = JSON.parse(itemJson)
 
 //This function is used in both voice recognition and manual search
-function search_item() {
+function searchItem() {
     let input = document.getElementById('searchbar').value
     input = input.toLowerCase();
     let x = document.querySelector('#result');
     x.innerHTML = ""
 
-    for (i = 0; i < itemData.length; i++) {
+    for (let i = 0; i < itemData.length; i++) {
         let obj = itemData[i];
 
         if (obj.Item.toLowerCase().includes(input)) {
