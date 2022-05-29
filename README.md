@@ -45,7 +45,7 @@ Please observe that step 1.0-1.7 is instruction for Mac. Please use the link to 
 **1.5** Change the current working directory to the location where you want the cloned directory.
 
 **1.6** Type git clone, and then paste the URL you copied earlier.
-	git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+	`git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`
 
 **1.7** Press Enter to create your local clone.
  
