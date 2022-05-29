@@ -8,6 +8,12 @@
   "scripts": {
     "start": "nodemon server.js"
   },
+  "standard": {
+    "ignore": [
+      "/github/workspace/Website/script.js",
+      "/github/workspace/public/index.js"
+    ]
+  },
   "description": "## **What are we going to make?**     A shopping assistant which will drive around in a store. It will give the user directions and information about specific items in the store. The car     will have some awareness of its surroundings and avoid driving into objects. It will also show the way to the item by going there.",
   "main": "index.js",
   "dependencies": {
