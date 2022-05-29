@@ -30,9 +30,7 @@ The system consists of three parts, the ardurino car, mqtt broker and the websit
 ## **Getting started**
 
 **1.**   Clone the repository.
-Please observe that step 1.0-1.7 is instruction for Mac. Please use the link to find the right steps for your operating system. 
-
-**Link:** https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository 
+Please observe that step 1.0-1.7 is instruction for Mac. Please use the right steps for your operating system. 
 
 **1.1**	Go to the main page of the repository. 
 
