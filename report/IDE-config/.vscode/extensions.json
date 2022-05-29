@@ -1,8 +1,0 @@
-{
-    "recommendations": [
-        "chenxsan.vscode-standardjs",
-        "stylelint.vscode-stylelint",
-        "mkaufman.HTMLHint",
-        "esbenp.prettier-vscode"
-    ]
-}
