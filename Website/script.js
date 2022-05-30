@@ -58,6 +58,10 @@ function searchItem() {
     let x = document.querySelector('#result');
     x.innerHTML = ""
 
+    var msg = new SpeechSynthesisUtterance();
+    msg.lang = 'en-US';
+    msg.rate = 0.75;
+
     for (let i = 0; i < itemData.length; i++) {
         let obj = itemData[i];
 
@@ -67,5 +71,22 @@ function searchItem() {
             x.appendChild(elem)
         }
 
+        msg.text = `you can find the ${obj.Item} in Aisle ${obj.Aisle} Section ${obj.Section} at this moment we have ${obj.Quantity} ${obj.Item} in stock and the price is ${obj.Price}`
+        window.speechSynthesis.speak(msg);
+
     }
+}
+
+
+function getInfo(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    let message = "Invalid username or password"
+
+    if((username === "admin") && password==="123"){
+        window.location = "MovementControlWeb.html";
+    }else {
+        document.getElementById("info").innerHTML = "Your login credentials were incorrect! ";
+    }
+
 }
