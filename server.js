@@ -31,10 +31,10 @@ client.on('connect', () => {
     app.post('/throttle', (req, res) => {
         const topic ='/smartcar/control/throttle'
         client.publish(topic, req.body.throttle, { qos: 0, retain: false }, (error) => {
-                if (error) {
-                    console.error(error)
-                }
-            })
+            if (error) {
+                console.error(error)
+            }
+        })
         res.sendStatus(201);
     })
     app.post('/steering', (req, res) => {
@@ -47,8 +47,19 @@ client.on('connect', () => {
         res.sendStatus(201);
     })
 
-    app.listen(port, () => {
+    app.post('/drive', (req, res) => {
+        const topic ='/smartcar/control/drive'
+        client.publish(topic, req.body.drive, { qos: 0, retain: false }, (error) => {
+            if (error) {
+                console.error(error)
+            }
+        })
+        res.sendStatus(201);
+    })
+
+ app.listen(port, () => {
         console.log(`Backend server listening on port ${port}`)
     })
 
 })
+
