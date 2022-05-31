@@ -169,7 +169,6 @@ void setup() {
 
         }
 
-
       }
       else {
         Serial.println(topic + " " + message);
@@ -523,9 +522,6 @@ void path03()
     car.setSpeed(0);
   }
 }
-
-
-
 
 
 bool detectObstacle()  //To detect obstacle and stop the car when facing an obstacle.
