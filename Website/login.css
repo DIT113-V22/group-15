@@ -1,7 +1,7 @@
 h1 {
     text-align: left;
     color: black;
-    background-color: lightgray;
+    background-color: #06acf8;
     padding: 20px 10px;
 }
 h2{
@@ -12,15 +12,19 @@ h2{
 
 body{
     font-family: "Times New Roman", Serif;
-
+    background-image: url("https://www.formbyfestival.co.uk/wp-content/uploads/2018/08/plain-blue-sky.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: cornflowerblue;
+    background-size: cover;
 }
 form{
     text-align: center;
 
 }
 #button-back{
-    background-color: white;
-    border: 2px solid lightcoral;
+    background-color: rgb(174 220 241 / 96%);
+    border: 2px solid #0929ce;
     color: black;
     width: 100px;
     height: 50px;
@@ -32,13 +36,14 @@ form{
 }
 #button-back:hover{
     cursor: pointer;
-    border-color: red;
+    background-color:#0929ce;
+    color: white;
 
 
 }
 #button-login{
-    background-color: white;
-    border: 2px solid darkseagreen;
+    background-color: rgb(174 220 241 / 96%);
+    border: 2px solid #0929ce;
     color: black;
     width: 100px;
     height: 50px;
@@ -50,7 +55,8 @@ form{
 }
 #button-login:hover{
     cursor: pointer;
-    border-color: green;
+    background-color:#0929ce;
+    color: white;
 
 }
 .personal-info{
@@ -60,6 +66,5 @@ form{
 }
 button{
     font-family: "Times New Roman", Serif;
-    font-size: 14px;
-
+    font-size: 14px
 }
